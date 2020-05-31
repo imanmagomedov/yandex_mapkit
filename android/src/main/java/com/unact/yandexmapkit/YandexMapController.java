@@ -469,7 +469,7 @@ public class YandexMapController implements PlatformView, MethodChannel.MethodCa
         result.success(point);
         break;
       case "moveToUser":
-        moveToUser();
+        moveToUser(call);
         result.success(null);
         break;
       default:

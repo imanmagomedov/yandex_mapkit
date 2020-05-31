@@ -86,7 +86,7 @@ public class YandexMapController: NSObject, FlutterPlatformView {
       let targetPoint = getTargetPoint()
       result(targetPoint)
     case "moveToUser":
-      moveToUser()
+      moveToUser(call)
       result(nil)
     default:
       result(FlutterMethodNotImplemented)
