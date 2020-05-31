@@ -341,10 +341,12 @@ public class YandexMapController implements PlatformView, MethodChannel.MethodCa
     }
   }
 
-  private void moveToUser(float zoom) {
+  @SuppressWarnings("unchecked")
+  private void moveToUser(MethodCall call) {
     if (!hasLocationPermission()) return;
-    
-    float currentZoom = zoom;
+    Map<String, Object> params = ((Map<String, Object>) call.arguments);
+
+    float currentZoom = ((Double) params.get("zoom")).floatValue();
     if (currentZoom == 0) {
       currentZoom = mapView.getMap().getCameraPosition().getZoom();
     }
