@@ -208,7 +208,7 @@ class YandexMapController extends ChangeNotifier {
     await _channel.invokeMethod<void>('zoomOut');
   }
 
-  Future<void> moveToUser(double zoom) async {
+  Future<void> moveToUser({ double zoom = 0 }) async {
     await _channel.invokeMethod<void>('moveToUser', zoom);
   }
 
