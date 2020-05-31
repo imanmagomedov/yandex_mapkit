@@ -209,7 +209,12 @@ class YandexMapController extends ChangeNotifier {
   }
 
   Future<void> moveToUser({ double zoom = 0 }) async {
-    await _channel.invokeMethod<void>('moveToUser', zoom);
+    await _channel.invokeMethod<void>(
+      'moveToUser',
+      <String, dynamic>{
+        'zoom': zoom
+      }
+    );
   }
 
   Future<Point> getTargetPoint() async {
