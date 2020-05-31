@@ -341,10 +341,13 @@ public class YandexMapController implements PlatformView, MethodChannel.MethodCa
     }
   }
 
-  private void moveToUser() {
+  private void moveToUser(float zoom = 0) {
     if (!hasLocationPermission()) return;
     
-    float currentZoom = mapView.getMap().getCameraPosition().getZoom();
+    float currentZoom = zoom;
+    if (zoom == 0) {
+      zoom = mapView.getMap().getCameraPosition().getZoom();
+    }
     float tilt = mapView.getMap().getCameraPosition().getTilt();
     float azimuth = mapView.getMap().getCameraPosition().getAzimuth();
     if (userLocationLayer != null) {

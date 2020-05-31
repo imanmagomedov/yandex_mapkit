@@ -358,9 +358,12 @@ public class YandexMapController: NSObject, FlutterPlatformView {
     }
   }
 
-  public func moveToUser() {
+  public func moveToUser(currentZoom:Float = 0) {
     if (!hasLocationPermission()) { return }
-    let zoom = mapView.mapWindow.map.cameraPosition.zoom
+    let zoom = currentZoom
+    if (currentZoom == 0) {
+      zoom = mapView.mapWindow.map.cameraPosition.zoom
+    }
     let azimuth = mapView.mapWindow.map.cameraPosition.azimuth
     let tilt = mapView.mapWindow.map.cameraPosition.tilt
     if let target = userLocationLayer?.cameraPosition()?.target {
