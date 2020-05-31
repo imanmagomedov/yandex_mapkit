@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -209,7 +208,7 @@ class YandexMapController extends ChangeNotifier {
     await _channel.invokeMethod<void>('zoomOut');
   }
 
-  Future<void> moveToUser(Float zoom) async {
+  Future<void> moveToUser(double zoom) async {
     await _channel.invokeMethod<void>('moveToUser', zoom);
   }
 

@@ -346,7 +346,7 @@ public class YandexMapController implements PlatformView, MethodChannel.MethodCa
     
     float currentZoom = zoom;
     if (zoom == 0) {
-      zoom = mapView.getMap().getCameraPosition().getZoom();
+      currentZoom = mapView.getMap().getCameraPosition().getZoom();
     }
     float tilt = mapView.getMap().getCameraPosition().getTilt();
     float azimuth = mapView.getMap().getCameraPosition().getAzimuth();
